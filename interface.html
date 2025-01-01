@@ -7,6 +7,22 @@
     <link rel="stylesheet" href="interface-styles.css">
     <script defer src="interface-script.js"></script>
     <title>Cloud Library</title>
+    <style>
+        /* Optional: Some quick styles for better clarity */
+        .book {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 10px;
+            margin: 10px;
+            text-align: center;
+        }
+        .search-bar {
+            margin-bottom: 20px;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
 </head>
 
 <body>
@@ -15,58 +31,60 @@
             <h1>Welcome to Cloud Library</h1>
         </div>
 
+        <!-- Search Bar -->
         <div class="search-bar">
-            <input type="text" id="searchInput" placeholder="Search for a book..." onkeyup="searchBooks()">
+            <input type="text" id="searchInput" placeholder="Search by name or classification..." onkeyup="searchBooks()">
         </div>
 
+        <!-- Book List -->
         <div class="books" id="bookList">
-            <div class="book">
+            <div class="book" data-name="البداية و النهاية" data-classification="islamk">
                 <img src="book1.jpg" alt="Book 1">
                 <h3>البداية و النهاية</h3>
+                <p><strong>Classification:</strong> islamk</p>
                 <p>Ibn Kathir</p>
-                <p>islamk</p>
                 <button>Read Now</button>
             </div>
-            <div class="book">
+            <div class="book" data-name="Formula 1 Records" data-classification="Sport">
                 <img src="book2.jpg" alt="Book 2">
                 <h3>Formula 1 Records</h3>
+                <p><strong>Classification:</strong> Sport</p>
                 <p>Toto Wolf</p>
-                <p>Sport</p>
                 <button>Read Now</button>
             </div>
-            <div class="book">
+            <div class="book" data-name="بكامل قواي القلبية" data-classification="Postic">
                 <img src="book3.jpg" alt="Book 3">
                 <h3>بكامل قواي القلبية</h3>
+                <p><strong>Classification:</strong> Postic</p>
                 <p>Saeed bin Mena</p>
-                <p>Postic</p>
                 <button>Read Now</button>
             </div>
-            <div class="book">
+            <div class="book" data-name="شمس المعارف" data-classification="Magic">
                 <img src="book4.jpg" alt="Book 4">
                 <h3>شمس المعارف</h3>
+                <p><strong>Classification:</strong> Magic</p>
                 <p>فرعون</p>
-                <p>Magic</p>
                 <button>Read Now</button>
             </div>
-            <div class="book">
+            <div class="book" data-name="CEH" data-classification="Network">
                 <img src="book5.jpg" alt="Book 5">
                 <h3>CEH</h3>
+                <p><strong>Classification:</strong> Network</p>
                 <p>By J.D. Salinger</p>
-                <p>Network</p>
                 <button>Read Now</button>
             </div>
-            <div class="book">
+            <div class="book" data-name="Fire and blood" data-classification="Game of thronse">
                 <img src="book6.jpg" alt="Book 6">
                 <h3>Fire and blood</h3>
+                <p><strong>Classification:</strong> Game of thronse</p>
                 <p>Gorge r martin</p>
-                <p>Game of thronse</p>
                 <button>Read Now</button>
             </div>
-            <div class="book">
+            <div class="book" data-name="فكر خارج الثلاجة" data-classification="live style">
                 <img src="book7.jpg" alt="Book 7">
                 <h3>فكر خارج الثلاجة</h3>
+                <p><strong>Classification:</strong> live style</p>
                 <p>فيصل بن سعود</p>
-                <p>live style</p>
                 <button>Read Now</button>
             </div>
         </div>
@@ -75,6 +93,31 @@
             <button onclick="logout()">Logout</button>
         </div>
     </div>
+
+    <script>
+        // Search Functionality
+        function searchBooks() {
+            const input = document.getElementById('searchInput').value.toLowerCase(); // Get search input
+            const books = document.querySelectorAll('.book'); // Get all book elements
+
+            books.forEach(book => {
+                const name = book.getAttribute('data-name').toLowerCase(); // Get book name
+                const classification = book.getAttribute('data-classification').toLowerCase(); // Get book classification
+                
+                // Check if input matches name or classification
+                if (name.includes(input) || classification.includes(input)) {
+                    book.classList.remove('hidden'); // Show book
+                } else {
+                    book.classList.add('hidden'); // Hide book
+                }
+            });
+        }
+
+        // Placeholder for Logout
+        function logout() {
+            alert('Logging out...');
+        }
+    </script>
 </body>
 
 </html>

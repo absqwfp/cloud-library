@@ -1,7 +1,7 @@
 # Cloud Library Project
 
 ## Overview
-This project is a web library interface, with sign-in, sign-up, and browse books pages.
+This project is a cloud library interface, with sign-in, sign-up, and browse books pages.
 
 ## Features
 - **Responsive Design**: The layout is designed to work on various screen sizes, ensuring a good experience on mobile devices and desktops.
@@ -11,15 +11,15 @@ This project is a web library interface, with sign-in, sign-up, and browse books
 ## How to Run
 1. **Clone the Repo**
     ```bash
-    git clone https://github.com/absqwfp/web-library.git
+    git clone https://github.com/absqwfp/cloud-library.git
     ```
 
 2. **Go to the Project Folder**
     ```bash
-    cd ./web-library
+    cd ./cloud-library
     ```
 
 3. **Open with Your Browser**
     ```bash
-    firefox ./web-library
+    firefox ./cloud-library
     ```

@@ -7,95 +7,6 @@
     <link rel="stylesheet" href="interface-styles.css">
     <script defer src="interface-script.js"></script>
     <title>Cloud Library</title>
-    <style>
-        /* Quick styles for clarity */
-        .book {
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            padding: 10px;
-            margin: 10px;
-            text-align: center;
-        }
-
-        .search-bar {
-            margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .search-bar input {
-            flex: 1;
-            padding: 10px;
-            font-size: 16px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-
-        .favorites-icon {
-            margin-left: 10px;
-            cursor: pointer;
-            font-size: 16px;
-            color: #fff;
-            background-color: #f44336;
-            border: none;
-            padding: 10px 15px;
-            border-radius: 5px;
-        }
-
-        .hidden {
-            display: none;
-        }
-
-        .favorites-list {
-            position: fixed;
-            top: 100px;
-            right: 20px;
-            width: 300px;
-            max-height: 400px;
-            overflow-y: auto;
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            background-color: #fff;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            z-index: 10;
-        }
-
-        .favorites-list h3 {
-            margin-top: 0;
-        }
-
-        .favorites-list ul {
-            padding: 0;
-            list-style: none;
-        }
-
-        .favorites-list li {
-            cursor: pointer;
-            margin: 5px 0;
-            padding: 5px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            background-color: #f9f9f9;
-        }
-
-        .favorites-list li:hover {
-            background-color: #f1f1f1;
-        }
-
-        .book button.favorite-btn {
-            background-color: transparent;
-            color: black;
-            border: none;
-            cursor: pointer;
-            font-size: 20px;
-        }
-
-        .book button.favorite-btn.favorited {
-            color: red;
-        }
-    </style>
 </head>
 
 <body>
@@ -106,12 +17,25 @@
 
         <!-- Search Bar -->
         <div class="search-bar">
+            <button class="icon-button" onclick="toggleHistory()">
+                <span class="history-icon">&#128214;</span> History
+            </button>
             <input type="text" id="searchInput" placeholder="Search by name or classification..." onkeyup="searchBooks()">
-            <button class="favorites-icon" onclick="toggleFavorites()">Favorites</button>
+            <button class="icon-button" onclick="toggleFavorites()">
+                <span class="heart-icon">&#9829;</span> Favorites
+            </button>
+        </div>
+
+        <!-- Reading History List -->
+        <div id="historyList" class="list-container hidden">
+            <h3>Reading History</h3>
+            <ul id="historyContent">
+                <!-- Read books will be dynamically added here -->
+            </ul>
         </div>
 
         <!-- Favorites List -->
-        <div id="favoritesList" class="favorites-list hidden">
+        <div id="favoritesList" class="list-container hidden">
             <h3>Favorites</h3>
             <ul id="favoritesContent">
                 <!-- Favorite books will be dynamically added here -->
@@ -125,7 +49,7 @@
                 <h3>البداية و النهاية</h3>
                 <p><strong>Classification:</strong> islamk</p>
                 <p>Ibn Kathir</p>
-                <button>Read Now</button>
+                <button class="read-btn" onclick="addToHistory(this)">Read Now</button>
                 <button class="favorite-btn" onclick="toggleFavorite(this)">&#9825;</button>
             </div>
             <div class="book" data-name="Formula 1 Records" data-classification="Sport">
@@ -133,7 +57,7 @@
                 <h3>Formula 1 Records</h3>
                 <p><strong>Classification:</strong> Sport</p>
                 <p>Toto Wolf</p>
-                <button>Read Now</button>
+                <button class="read-btn" onclick="addToHistory(this)">Read Now</button>
                 <button class="favorite-btn" onclick="toggleFavorite(this)">&#9825;</button>
             </div>
             <div class="book" data-name="بكامل قواي القلبية" data-classification="Postic">
@@ -141,7 +65,7 @@
                 <h3>بكامل قواي القلبية</h3>
                 <p><strong>Classification:</strong> Postic</p>
                 <p>Saeed bin Mena</p>
-                <button>Read Now</button>
+                <button class="read-btn" onclick="addToHistory(this)">Read Now</button>
                 <button class="favorite-btn" onclick="toggleFavorite(this)">&#9825;</button>
             </div>
             <div class="book" data-name="شمس المعارف" data-classification="Magic">
@@ -149,124 +73,15 @@
                 <h3>شمس المعارف</h3>
                 <p><strong>Classification:</strong> Magic</p>
                 <p>فرعون</p>
-                <button>Read Now</button>
-                <button class="favorite-btn" onclick="toggleFavorite(this)">&#9825;</button>
-            </div>
-            <div class="book" data-name="CEH" data-classification="Network">
-                <img src="book5.jpg" alt="Book 5">
-                <h3>CEH</h3>
-                <p><strong>Classification:</strong> Network</p>
-                <p>By j.d salinger</p>
-                <button>Read Now</button>
-                <button class="favorite-btn" onclick="toggleFavorite(this)">&#9825;</button>
-            </div>
-            <div class="book" data-name="Fire and blood" data-classification="Game of thronse">
-                <img src="book6.jpg" alt="Book 6">
-                <h3>Fire and blood</h3>
-                <p><strong>Classification:</strong> Game of thronse</p>
-                <p>Gorage r martin</p>
-                <button>Read Now</button>
-                <button class="favorite-btn" onclick="toggleFavorite(this)">&#9825;</button>
-            </div>
-            <div class="book" data-name="فكر خارج الثلاجة" data-classification="live style">
-                <img src="book7.jpg" alt="Book 7">
-                <h3>فكر خارج الثلاجة</h3>
-                <p><strong>Classification:</strong> live style</p>
-                <p>فيصل بن سعود</p>
-                <button>Read Now</button>
+                <button class="read-btn" onclick="addToHistory(this)">Read Now</button>
                 <button class="favorite-btn" onclick="toggleFavorite(this)">&#9825;</button>
             </div>
         </div>
-
 
         <div class="footer">
             <button onclick="logout()">Logout</button>
         </div>
     </div>
-
-    <script>
-        let favorites = [];
-        let showOnlyFavorites = false;
-
-        // Search Functionality
-        function searchBooks() {
-            const input = document.getElementById('searchInput').value.toLowerCase();
-            const books = document.querySelectorAll('.book');
-
-            books.forEach(book => {
-                const name = book.getAttribute('data-name').toLowerCase();
-                const classification = book.getAttribute('data-classification').toLowerCase();
-
-                if (name.includes(input) || classification.includes(input)) {
-                    book.classList.remove('hidden');
-                } else {
-                    book.classList.add('hidden');
-                }
-            });
-        }
-
-        // Toggle Favorites List
-        function toggleFavorites() {
-            const favoritesList = document.getElementById('favoritesList');
-            favoritesList.classList.toggle('hidden');
-        }
-
-        // Toggle Favorite Status
-        function toggleFavorite(button) {
-            const book = button.closest('.book');
-            const bookName = book.getAttribute('data-name');
-            const favoritesContent = document.getElementById('favoritesContent');
-
-            if (favorites.includes(bookName)) {
-                // Remove from favorites
-                favorites = favorites.filter(fav => fav !== bookName);
-                button.innerHTML = '&#9825;'; // Empty heart
-                button.classList.remove('favorited');
-
-                // Remove from favorites list
-                const favoriteItem = favoritesContent.querySelector([data-name="${bookName}"]);
-                if (favoriteItem) favoritesContent.removeChild(favoriteItem);
-            } else {
-                // Add to favorites (prevent duplicates)
-                if (!favorites.includes(bookName)) {
-                    favorites.push(bookName);
-                    button.innerHTML = '&#9829;'; // Red heart
-                    button.classList.add('favorited');
-
-                    // Add to favorites list
-                    const favoriteItem = document.createElement('li');
-                    favoriteItem.setAttribute('data-name', bookName);
-                    favoriteItem.textContent = bookName;
-                    favoriteItem.onclick = () => filterFavorites(bookName);
-                    favoritesContent.appendChild(favoriteItem);
-                }
-            }
-        }
-
-        // Filter Favorites
-        function filterFavorites(bookName) {
-            const books = document.querySelectorAll('.book');
-            showOnlyFavorites = !showOnlyFavorites;
-
-            books.forEach(book => {
-                const name = book.getAttribute('data-name');
-                if (showOnlyFavorites) {
-                    if (name !== bookName) {
-                        book.classList.add('hidden');
-                    } else {
-                        book.classList.remove('hidden');
-                    }
-                } else {
-                    book.classList.remove('hidden');
-                }
-            });
-        }
-
-        // Placeholder for Logout
-        function logout() {
-            alert('Logging out...');
-        }
-    </script>
 </body>
 
 </html>

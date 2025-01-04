@@ -143,3 +143,57 @@ let favorites = [];
         function logout() {
             alert('Logging out...');
         }
+ // Search Functionality
+ function searchBooks() {
+    const input = document.getElementById('searchInput').value.toLowerCase(); // Get search input
+    const books = document.querySelectorAll('.book'); // Get all book elements
+
+    books.forEach(book => {
+        const name = book.getAttribute('data-name').toLowerCase(); // Get book name
+        const classification = book.getAttribute('data-classification').toLowerCase(); // Get book classification
+        
+        // Check if input matches name or classification
+        if (name.includes(input) || classification.includes(input)) {
+            book.classList.remove('hidden'); // Show book
+        } else {
+            book.classList.add('hidden'); // Hide book
+        }
+    });
+}
+
+// Placeholder for Logout
+function logout() {
+    alert('Logging out...');
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+    const profileIcon = document.getElementById("profileIcon"); // The profile icon
+    const profileSidebar = document.getElementById("profileSidebar"); // The sidebar
+    const container = document.getElementById("container"); // The main interface
+  
+    let isSidebarOpen = false; // Track sidebar state
+  
+    profileIcon.addEventListener("click", () => {
+      if (isSidebarOpen) {
+        // Close the sidebar
+        profileSidebar.style.transform = "translateX(100%)";
+        container.classList.remove("shifted");
+      } else {
+        // Open the sidebar
+        profileSidebar.style.transform = "translateX(0)";
+        container.classList.add("shifted");
+      }
+      isSidebarOpen = !isSidebarOpen; // Toggle state
+    });
+  });
+  const profileIcon = document.getElementById("profileIcon");
+  const userDetails = document.getElementById("userDetails");
+
+  profileIcon.addEventListener("click", () => {
+    if (userDetails.style.display === "none" || userDetails.style.display === "") {
+      userDetails.style.display = "block"; // Show user details
+    } else {
+      userDetails.style.display = "none"; // Hide user details
+    }
+  });
+ 

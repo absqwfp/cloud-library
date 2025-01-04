@@ -255,3 +255,168 @@ body {
     border-radius: 5px;
     cursor: pointer;
 }
+/* User profile icon */
+.user-profile {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+  }
+  
+  .profile-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+  
+  /* Sidebar styles */
+  .profile-sidebar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 300px;
+    height: 100%;
+    background-color: #ffffff;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in-out;
+    z-index: 1000;
+  }
+  
+  .profile-sidebar .profile-content {
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .profile-sidebar .profile-picture {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+  }
+  
+  .profile-sidebar .username,
+  .profile-sidebar .email {
+    margin: 5px 0;
+    font-size: 1rem;
+  }
+  
+  /* Shifting effect */
+  .shifted {
+    transform: translateX(-300px);
+  }
+  .container {
+    transition: transform 0.3s ease-in-out; /* Smooth shifting */
+  }
+  
+  .profile-sidebar {
+    transition: transform 0.3s ease-in-out; /* Smooth sliding */
+  }
+
+  /* Styling for the favorites icon */
+.favorites-btn img,
+.favorite-icon img {
+  cursor: pointer;
+}
+
+.favorites {
+  margin-top: 20px;
+  border: 1px solid #ddd;
+  padding: 10px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+}
+
+.hidden {
+  display: none;
+}
+
+/*fev*/
+/* Quick styles for clarity */
+.book {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px;
+    text-align: center;
+}
+
+.search-bar {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.search-bar input {
+    flex: 1;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.favorites-icon {
+    margin-left: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    color: #fff;
+    background-color: #f44336;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+}
+
+.hidden {
+    display: none;
+}
+
+.favorites-list {
+    position: fixed;
+    top: 100px;
+    right: 20px;
+    width: 300px;
+    max-height: 400px;
+    overflow-y: auto;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 10;
+}
+
+.favorites-list h3 {
+    margin-top: 0;
+}
+
+.favorites-list ul {
+    padding: 0;
+    list-style: none;
+}
+
+.favorites-list li {
+    cursor: pointer;
+    margin: 5px 0;
+    padding: 5px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+.favorites-list li:hover {
+    background-color: #f1f1f1;
+}
+
+.book button.favorite-btn {
+    background-color: transparent;
+    color: black;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.book button.favorite-btn.favorited {
+    color: red;
+}

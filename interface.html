@@ -1,110 +1,121 @@
 <!DOCTYPE html>
 <html lang="en">
 
-	<head>
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<link rel="stylesheet" href="interface-styles.css">
-		<script defer src="interface-script.js"></script>
-		<title>Cloud Library</title>
-	</head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="interface-styles.css">
+    <script defer src="interface-script.js"></script>
+    <title>Cloud Library</title>
+</head>
 
-	<body>
-		<div class="container">
-			<div class="header">
-				<h1>Welcome to Cloud Library</h1>
-			</div>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Welcome to Cloud Library</h1>
+        </div>
 
-			<!-- Search Bar -->
-			<div class="search-bar">
-				<input type="text" id="searchInput" placeholder="Search by name or classification..." onkeyup="searchBooks()">
-				<button class="favorites-icon" onclick="toggleFavorites()">Favorites</button>
-			</div>
+        <!-- Search Bar -->
+        <div class="search-bar">
+            <button class="icon-button" onclick="toggleHistory()">
+                <span class="history-icon">&#128214;</span> History
+            </button>
+            <input type="text" id="searchInput" placeholder="Search by name or classification..." onkeyup="searchBooks()">
+            <button class="icon-button" onclick="toggleFavorites()">
+                <span class="heart-icon">&#9829;</span> Favorites
+            </button>
+        </div>
 
-			<!-- Favorites List -->
-			<div id="favoritesList" class="favorites-list hidden">
-				<h3>Favorites</h3>
-				<ul id="favoritesContent">
-					<!-- Favorite books will be dynamically added here -->
-				</ul>
-			</div>
-			<!-- Book List -->
-			<div class="books" id="bookList">
-				<div class="book" data-name="البداية و النهاية" data-classification="islamk">
-					<img src="book1.jpg" alt="Book 1">
-					<h3>البداية و النهاية</h3>
-					<p><strong>Classification:</strong> islamk</p>
-					<p>Ibn Kathir</p>
-					<button>Read Now</button>
-					<button class="favorite-btn" onclick="toggleFavorite(this)">&#9825;</button>
-				</div>
-				<div class="book" data-name="Formula 1 Records" data-classification="Sport">
-					<img src="book2.jpg" alt="Book 2">
-					<h3>Formula 1 Records</h3>
-					<p><strong>Classification:</strong> Sport</p>
-					<p>Toto Wolf</p>
-					<button>Read Now</button>
-					<button class="favorite-btn" onclick="toggleFavorite(this)">&#9825;</button>
-				</div>
-				<div class="book" data-name="بكامل قواي القلبية" data-classification="Postic">
-					<img src="book3.jpg" alt="Book 3">
-					<h3>بكامل قواي القلبية</h3>
-					<p><strong>Classification:</strong> Postic</p>
-					<p>Saeed bin Mena</p>
-					<button>Read Now</button>
-					<button class="favorite-btn" onclick="toggleFavorite(this)">&#9825;</button>
-				</div>
-				<div class="book" data-name="شمس المعارف" data-classification="Magic">
-					<img src="book4.jpg" alt="Book 4">
-					<h3>شمس المعارف</h3>
-					<p><strong>Classification:</strong> Magic</p>
-					<p>فرعون</p>
-					<button>Read Now</button>
-					<button class="favorite-btn" onclick="toggleFavorite(this)">&#9825;</button>
-				</div>
-				<div class="book" data-name="CEH" data-classification="Network">
-					<img src="book5.jpg" alt="Book 5">
-					<h3>CEH</h3>
-					<p><strong>Classification:</strong> Network</p>
-					<p>By j.d salinger</p>
-					<button>Read Now</button>
-					<button class="favorite-btn" onclick="toggleFavorite(this)">&#9825;</button>
-				</div>
-				<div class="book" data-name="Fire and blood" data-classification="Game of thronse">
-					<img src="book6.jpg" alt="Book 6">
-					<h3>Fire and blood</h3>
-					<p><strong>Classification:</strong> Game of thronse</p>
-					<p>Gorage r martin</p>
-					<button>Read Now</button>
-					<button class="favorite-btn" onclick="toggleFavorite(this)">&#9825;</button>
-				</div>
-				<div class="book" data-name="فكر خارج الثلاجة" data-classification="live style">
-					<img src="book7.jpg" alt="Book 7">
-					<h3>فكر خارج الثلاجة</h3>
-					<p><strong>Classification:</strong> live style</p>
-					<p>فيصل بن سعود</p>
-					<button>Read Now</button>
-					<button class="favorite-btn" onclick="toggleFavorite(this)">&#9825;</button>
-				</div>
-			</div>
+        <!-- Reading History List -->
+        <div id="historyList" class="list-container hidden">
+            <h3>Reading History</h3>
+            <ul id="historyContent">
+                <!-- Read books will be dynamically added here -->
+            </ul>
+        </div>
 
+        <!-- Favorites List -->
+        <div id="favoritesList" class="list-container hidden">
+            <h3>Favorites</h3>
+            <ul id="favoritesContent">
+                <!-- Favorite books will be dynamically added here -->
+            </ul>
+        </div>
 
-			<div class="footer">
-				<button onclick="logout()">Logout</button>
-			</div>
-		</div>
-		<div class="user-profile">
-			<img src="pro.png" alt="User Icon" class="profile-icon" id="profileIcon">
-		</div>
+        <!-- Book List -->
+        <div class="books" id="bookList">
+            <div class="book" data-name="البداية و النهاية" data-classification="islamk">
+                <img src="book1.jpg" alt="Book 1">
+                <h3>البداية و النهاية</h3>
+                <p><strong>Classification:</strong> islamk</p>
+                <p>Ibn Kathir</p>
+                <button class="read-btn" onclick="addToHistory(this)">Read Now</button>
+                <button class="favorite-btn" onclick="toggleFavorite(this)">&#9825;</button>
+            </div>
+            <div class="book" data-name="Formula 1 Records" data-classification="Sport">
+                <img src="book2.jpg" alt="Book 2">
+                <h3>Formula 1 Records</h3>
+                <p><strong>Classification:</strong> Sport</p>
+                <p>Toto Wolf</p>
+                <button class="read-btn" onclick="addToHistory(this)">Read Now</button>
+                <button class="favorite-btn" onclick="toggleFavorite(this)">&#9825;</button>
+            </div>
+            <div class="book" data-name="Atomic habits" data-classification="live style">
+                <img src="book3 copy.jpg" alt="Book 3">
+                <h3>Atomic habits</h3>
+                <p><strong>Classification:</strong> live style</p>
+                <p>James clear</p>
+                <button class="read-btn" onclick="addToHistory(this)">Read Now</button>
+                <button class="favorite-btn" onclick="toggleFavorite(this)">&#9825;</button>
+            </div>
+            <div class="book" data-name="The sun of knowladge" data-classification="Magic">
+                <img src="book4.jpg" alt="Book 4">
+                <h3>The sun of knowladge</h3>
+                <p><strong>Classification:</strong> Magic</p>
+                <p>ahmed alouni</p>
+                <button class="read-btn" onclick="addToHistory(this)">Read Now</button>
+                <button class="favorite-btn" onclick="toggleFavorite(this)">&#9825;</button>
+            </div>
+            <div class="book" data-name="CEH" data-classification="learn">
+                <img src="book5.jpg" alt="Book 5">
+                <h3>CEH</h3>
+                <p><strong>Classification:</strong> learn</p>
+                <p>j.d salinger</p>
+                <button class="read-btn" onclick="addToHistory(this)">Read Now</button>
+                <button class="favorite-btn" onclick="toggleFavorite(this)">&#9825;</button>
+            </div>
+            <div class="book" data-name="Fire and blood" data-classification="Movis">
+                <img src="book6.jpg" alt="Book 6">
+                <h3>Fire and blood</h3>
+                <p><strong>Classification:</strong> Magic</p>
+                <p>Gorage r martin</p>
+                <button class="read-btn" onclick="addToHistory(this)">Read Now</button>
+                <button class="favorite-btn" onclick="toggleFavorite(this)">&#9825;</button>
+            </div>
+            <div class="book" data-name="think outside the fridge" data-classification="live style">
+                <img src="book7.jpg" alt="Book 7">
+                <h3>think outside the fridge</h3>
+                <p><strong>Classification:</strong> Magic</p>
+                <p>Faisel Saud</p>
+                <button class="read-btn" onclick="addToHistory(this)">Read Now</button>
+                <button class="favorite-btn" onclick="toggleFavorite(this)">&#9825;</button>
+            </div>
+        </div>
 
-		<div class="profile-sidebar" id="profileSidebar">
-			<button class="close-btn" id="closeBtn">X</button>
-			<div class="profile-content">
-				<img src="pro.png" alt="Profile Picture" class="profile-picture">
-				<p class="username">Username: JohnDoe</p>
-				<p class="email">Email: johndoe@example.com</p>
-			</div>
-		</div>
-	</body>
+        <div class="footer">
+            <button onclick="logout()">Logout</button>
+        </div>
+    </div>
+    <div class="user-profile">
+        <img src="pro.png" alt="User Icon" class="profile-icon" id="profileIcon">
+      </div>
+      
+      <div class="profile-sidebar" id="profileSidebar">
+        <div class="profile-content">
+          <img src="pro.png" alt="Profile Picture" class="profile-picture">
+          <p class="username">Username: JohnDoe</p>
+          <p class="email">Email: johndoe@example.com</p>
+        </div>
+      </div>
 
 </html>

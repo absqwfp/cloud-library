@@ -163,4 +163,50 @@ let favorites = [];
               }
               isSidebarOpen = !isSidebarOpen; // Toggle state
             });
-          });        
+          });  const cartItems = [];
+          const cartSection = document.getElementById('cartSection');
+      
+          function toggleCart() {
+            if (cartSection.style.display === 'none' || cartSection.style.display === '') {
+              cartSection.style.display = 'block';
+            } else {
+              cartSection.style.display = 'none';
+            }
+          }
+      
+          function addToCart(bookTitle) {
+            const cartItemsList = document.getElementById('cartItems');
+            const isCartEmpty = cartItemsList.querySelector('li') && cartItemsList.querySelector('li').textContent === 'Your cart is empty.';
+      
+            if (isCartEmpty) {
+              cartItemsList.innerHTML = '';
+            }
+            
+            if (!cartItems.includes(bookTitle)) {
+              cartItems.push(bookTitle);
+              const cartItem = document.createElement('li');
+              cartItem.className = 'cart-item';
+              cartItem.innerHTML = `
+                <span class="cart-item-title">${bookTitle}</span>
+                <span class="cart-item-remove" onclick="removeFromCart('${bookTitle}')">Remove</span>
+              `;
+              cartItemsList.appendChild(cartItem);
+            }
+          }
+      
+          function removeFromCart(bookTitle) {
+            const cartItemsList = document.getElementById('cartItems');
+            const index = cartItems.indexOf(bookTitle);
+      
+            if (index > -1) {
+              cartItems.splice(index, 1);
+              const cartItem = Array.from(cartItemsList.children).find(item => item.querySelector('.cart-item-title').textContent === bookTitle);
+              if (cartItem) {
+                cartItemsList.removeChild(cartItem);
+              }
+            }
+      
+            if (cartItems.length === 0) {
+              cartItemsList.innerHTML = '<li>Your cart is empty.</li>';
+            }
+          }

@@ -11,6 +11,10 @@
 
 <body>
     <div class="container">
+        <div class="cart-icon" onclick="toggleCart()">
+            <img src="https://cdn-icons-png.flaticon.com/512/1170/1170678.png" alt="Cart Icon">
+        </div>
+
         <div class="header">
             <h1>Welcome to Cloud Library</h1>
         </div>
@@ -50,6 +54,7 @@
                 <p><strong>Classification:</strong> islamk</p>
                 <p>Ibn Kathir</p>
                 <button class="read-btn" onclick="addToHistory(this)">Read Now</button>
+                <button class="add-to-cart-btn" onclick="addToCart('البداية و النهاية')">Add to Cart</button>
                 <button class="favorite-btn" onclick="toggleFavorite(this)">&#9825;</button>
             </div>
             <div class="book" data-name="Formula 1 Records" data-classification="Sport">
@@ -58,6 +63,7 @@
                 <p><strong>Classification:</strong> Sport</p>
                 <p>Toto Wolf</p>
                 <button class="read-btn" onclick="addToHistory(this)">Read Now</button>
+                <button class="add-to-cart-btn" onclick="addToCart('Formula 1 Records')">Add to Cart</button>
                 <button class="favorite-btn" onclick="toggleFavorite(this)">&#9825;</button>
             </div>
             <div class="book" data-name="Atomic habits" data-classification="live style">
@@ -66,6 +72,7 @@
                 <p><strong>Classification:</strong> live style</p>
                 <p>James clear</p>
                 <button class="read-btn" onclick="addToHistory(this)">Read Now</button>
+                <button class="add-to-cart-btn" onclick="addToCart('Atomic habits')">Add to Cart</button>
                 <button class="favorite-btn" onclick="toggleFavorite(this)">&#9825;</button>
             </div>
             <div class="book" data-name="The sun of knowladge" data-classification="Magic">
@@ -74,48 +81,62 @@
                 <p><strong>Classification:</strong> Magic</p>
                 <p>ahmed alouni</p>
                 <button class="read-btn" onclick="addToHistory(this)">Read Now</button>
+                <button class="add-to-cart-btn" onclick="addToCart('The sun of knowladge')">Add to Cart</button>
                 <button class="favorite-btn" onclick="toggleFavorite(this)">&#9825;</button>
             </div>
             <div class="book" data-name="CEH" data-classification="learn">
                 <img src="book5.jpg" alt="Book 5">
                 <h3>CEH</h3>
                 <p><strong>Classification:</strong> learn</p>
-                <p>j.d salinger</p>
+                <p>J.D. Salinger</p>
                 <button class="read-btn" onclick="addToHistory(this)">Read Now</button>
+                <button class="add-to-cart-btn" onclick="addToCart('CEH')">Add to Cart</button>
                 <button class="favorite-btn" onclick="toggleFavorite(this)">&#9825;</button>
             </div>
-            <div class="book" data-name="Fire and blood" data-classification="Movis">
+            <div class="book" data-name="Fire and blood" data-classification="Movies">
                 <img src="book6.jpg" alt="Book 6">
                 <h3>Fire and blood</h3>
                 <p><strong>Classification:</strong> Magic</p>
-                <p>Gorage r martin</p>
+                <p>George R. Martin</p>
                 <button class="read-btn" onclick="addToHistory(this)">Read Now</button>
+                <button class="add-to-cart-btn" onclick="addToCart('Fire and blood')">Add to Cart</button>
                 <button class="favorite-btn" onclick="toggleFavorite(this)">&#9825;</button>
             </div>
-            <div class="book" data-name="think outside the fridge" data-classification="live style">
+            <div class="book" data-name="Think Outside the Fridge" data-classification="lifestyle">
                 <img src="book7.jpg" alt="Book 7">
-                <h3>think outside the fridge</h3>
-                <p><strong>Classification:</strong> Magic</p>
+                <h3>Think Outside the Fridge</h3>
+                <p><strong>Classification:</strong> Lifestyle</p>
                 <p>Faisel Saud</p>
                 <button class="read-btn" onclick="addToHistory(this)">Read Now</button>
+                <button class="add-to-cart-btn" onclick="addToCart('Think Outside the Fridge')">Add to Cart</button>
                 <button class="favorite-btn" onclick="toggleFavorite(this)">&#9825;</button>
             </div>
+        </div>
+
+        <div class="cart-section" id="cartSection">
+            <div class="cart-header">Shopping Cart</div>
+            <ul class="cart-items" id="cartItems">
+                <li>Your cart is empty.</li>
+            </ul>
         </div>
 
         <div class="footer">
             <button onclick="logout()">Logout</button>
         </div>
     </div>
+
     <div class="user-profile">
         <img src="pro.png" alt="User Icon" class="profile-icon" id="profileIcon">
-      </div>
-      
-      <div class="profile-sidebar" id="profileSidebar">
+    </div>
+
+    <div class="profile-sidebar" id="profileSidebar">
         <div class="profile-content">
-          <img src="pro.png" alt="Profile Picture" class="profile-picture">
-          <p class="username">Username: JohnDoe</p>
-          <p class="email">Email: johndoe@example.com</p>
+            <img src="pro.png" alt="Profile Picture" class="profile-picture">
+            <p class="username">Username: JohnDoe</p>
+            <p class="email">Email: johndoe@example.com</p>
         </div>
-      </div>
+    </div>
+
+</body>
 
 </html>

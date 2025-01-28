@@ -272,7 +272,7 @@ body {
   }
   
   /* Sidebar styles */
-  .profile-sidebar {
+   .profile-sidebar {
     position: fixed;
     top: 0;
     right: 0;
@@ -280,29 +280,44 @@ body {
     height: 100%;
     background-color: #ffffff;
     box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
-    transform: translateX(100%);
+    transform: translateX(100%); /* مخفية افتراضيًا */
     transition: transform 0.3s ease-in-out;
     z-index: 1000;
   }
-  
+
   .profile-sidebar .profile-content {
     padding: 20px;
     text-align: center;
   }
-  
+
   .profile-sidebar .profile-picture {
     width: 80px;
     height: 80px;
     border-radius: 50%;
     margin-bottom: 10px;
   }
-  
+
   .profile-sidebar .username,
   .profile-sidebar .email {
-    margin: 5px 0;
+    margin: 10px 0;
     font-size: 1rem;
+    font-family: Arial, sans-serif;
   }
-  
+
+  /* تنسيق أيقونة المستخدم */
+  .profile-icon {
+    font-size: 1.5rem;
+    cursor: pointer;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1100;
+  }
+
+  /* عند فتح القائمة الجانبية */
+  .profile-sidebar.open {
+    transform: translateX(0);
+  }
   /* Shifting effect */
   .shifted {
     transform: translateX(-300px);

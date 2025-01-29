@@ -11,10 +11,6 @@
 
 <body>
     <div class="container">
-        <div class="cart-icon" onclick="toggleCart()">
-            <img src="https://cdn-icons-png.flaticon.com/512/1170/1170678.png" alt="Cart Icon">
-        </div>
-
         <div class="header">
             <h1>Welcome to Cloud Library</h1>
         </div>
@@ -53,82 +49,90 @@
                 <h3>البداية و النهاية</h3>
                 <p><strong>Classification:</strong> islamk</p>
                 <p>Ibn Kathir</p>
-                <button class="read-btn" onclick="addToHistory(this)">Read Now</button>
-                <button class="add-to-cart-btn" onclick="addToCart('البداية و النهاية')">Add to Cart</button>
+                <button class="read-btn" data-pdf="book1.pdf" onclick="openPDF(this)">Read Now</button>
                 <button class="favorite-btn" onclick="toggleFavorite(this)">&#9825;</button>
             </div>
-            <div class="book" data-name="Formula 1 Records" data-classification="Sport">
+            <div class="book" data-name="Formula 1" data-classification="Sport">
                 <img src="book2.jpg" alt="Book 2">
-                <h3>Formula 1 Records</h3>
+                <h3>Formula 1</h3>
                 <p><strong>Classification:</strong> Sport</p>
-                <p>Toto Wolf</p>
-                <button class="read-btn" onclick="addToHistory(this)">Read Now</button>
-                <button class="add-to-cart-btn" onclick="addToCart('Formula 1 Records')">Add to Cart</button>
+                <p>Tim hill</p>
+                <button class="read-btn" data-pdf="book2.pdf" onclick="openPDF(this)">Read Now</button>
                 <button class="favorite-btn" onclick="toggleFavorite(this)">&#9825;</button>
             </div>
-            <div class="book" data-name="Atomic habits" data-classification="live style">
-                <img src="book3 copy.jpg" alt="Book 3">
-                <h3>Atomic habits</h3>
-                <p><strong>Classification:</strong> live style</p>
-                <p>James clear</p>
-                <button class="read-btn" onclick="addToHistory(this)">Read Now</button>
-                <button class="add-to-cart-btn" onclick="addToCart('Atomic habits')">Add to Cart</button>
+            <div class="book" data-name="ديوان امرؤ القيس" data-classification="postic">
+                <img src="book3.jpg" alt="Book 3">
+                <h3>ديوان امرؤ القيس</h3>
+                <p><strong>Classification:</strong>postic</p>
+                <p>امرؤ القيس</p>
+                <button class="read-btn" data-pdf="book3.pdf" onclick="openPDF(this)">Read Now</button>
                 <button class="favorite-btn" onclick="toggleFavorite(this)">&#9825;</button>
             </div>
-            <div class="book" data-name="The sun of knowladge" data-classification="Magic">
+            <div class="book" data-name="شمس المعارف" data-classification="Magic">
                 <img src="book4.jpg" alt="Book 4">
-                <h3>The sun of knowladge</h3>
+                <h3>شمس المعارف</h3>
                 <p><strong>Classification:</strong> Magic</p>
-                <p>ahmed alouni</p>
-                <button class="read-btn" onclick="addToHistory(this)">Read Now</button>
-                <button class="add-to-cart-btn" onclick="addToCart('The sun of knowladge')">Add to Cart</button>
+                <p>احمد البوني</p>
+                <button class="read-btn" data-pdf="book4.pdf" onclick="openPDF(this)">Read Now</button>
                 <button class="favorite-btn" onclick="toggleFavorite(this)">&#9825;</button>
             </div>
             <div class="book" data-name="CEH" data-classification="learn">
                 <img src="book5.jpg" alt="Book 5">
                 <h3>CEH</h3>
                 <p><strong>Classification:</strong> learn</p>
-                <p>J.D. Salinger</p>
-                <button class="read-btn" onclick="addToHistory(this)">Read Now</button>
-                <button class="add-to-cart-btn" onclick="addToCart('CEH')">Add to Cart</button>
+                <p>j.d salinger</p>
+                <button class="read-btn" data-pdf="book5.pdf" onclick="openPDF(this)">Read Now</button>
                 <button class="favorite-btn" onclick="toggleFavorite(this)">&#9825;</button>
             </div>
-            <div class="book" data-name="Fire and blood" data-classification="Movies">
+            <div class="book" data-name="Fire and blood" data-classification="Movis">
                 <img src="book6.jpg" alt="Book 6">
                 <h3>Fire and blood</h3>
                 <p><strong>Classification:</strong> Magic</p>
-                <p>George R. Martin</p>
-                <button class="read-btn" onclick="addToHistory(this)">Read Now</button>
-                <button class="add-to-cart-btn" onclick="addToCart('Fire and blood')">Add to Cart</button>
+                <p>Gorage r martin</p>
+                <button class="read-btn" data-pdf="book6.pdf" onclick="openPDF(this)">Read Now</button>
                 <button class="favorite-btn" onclick="toggleFavorite(this)">&#9825;</button>
             </div>
-            <div class="book" data-name="Think Outside the Fridge" data-classification="lifestyle">
+            <div class="book" data-name="لأنك الله" data-classification="islamk">
                 <img src="book7.jpg" alt="Book 7">
-                <h3>Think Outside the Fridge</h3>
-                <p><strong>Classification:</strong> Lifestyle</p>
-                <p>Faisel Saud</p>
-                <button class="read-btn" onclick="addToHistory(this)">Read Now</button>
-                <button class="add-to-cart-btn" onclick="addToCart('Think Outside the Fridge')">Add to Cart</button>
+                <h3>لأنك الله</h3>
+                <p><strong>Classification:</strong>islamk</p>
+                <p>علي الفيفي </p>
+                <button class="read-btn" data-pdf="book7.pdf" onclick="openPDF(this)">Read Now</button>
                 <button class="favorite-btn" onclick="toggleFavorite(this)">&#9825;</button>
             </div>
-        </div>
-
-        <div class="cart-section" id="cartSection">
-            <div class="cart-header">Shopping Cart</div>
-            <ul class="cart-items" id="cartItems">
-                <li>Your cart is empty.</li>
-            </ul>
+            <div class="book" data-name="الرحيق المختوم" data-classification="islamk">
+                <img src="book8.jpg" alt="Book 8">
+                <h3>الرحيق المختوم</h3>
+                <p><strong>Classification:</strong> islamk</p>
+                <p>صفي الرحمن المباركفوري</p>
+                <button class="read-btn" data-pdf="book8.pdf" onclick="openPDF(this)">Read Now</button>
+                <button class="favorite-btn" onclick="toggleFavorite(this)">&#9825;</button>
+            </div>
+            <div class="book" data-name="ارض زيكولا" data-classification="Novels">
+                <img src="book9.jpg" alt="Book 9">
+                <h3>ارض زيكولا</h3>
+                <p><strong>Classification:</strong> Novels</p>
+                <p>عمرو عبدالحميد</p>
+                <button class="read-btn" data-pdf="book9.pdf" onclick="openPDF(this)">Read Now</button>
+                <button class="favorite-btn" onclick="toggleFavorite(this)">&#9825;</button>
+            </div>
+            <div class="book" data-name="كل الطرق لاتؤدي الى روما" data-classification="Novels">
+                <img src="book10.jpg" alt="Book 10">
+                <h3>كل الطرق لاتؤدي الى روما</h3>
+                <p><strong>Classification:</strong>Novels </p>
+                <p>محمد طارق</p>
+                <button class="read-btn" data-pdf="book10.pdf" onclick="openPDF(this)">Read Now</button>
+                <button class="favorite-btn" onclick="toggleFavorite(this)">&#9825;</button>
+            </div>
         </div>
 
         <div class="footer">
             <button onclick="logout()">Logout</button>
         </div>
     </div>
-
     <div class="user-profile">
         <img src="pro.png" alt="User Icon" class="profile-icon" id="profileIcon">
     </div>
-
     <!-- القائمة الجانبية -->
     <div class="profile-sidebar" id="profileSidebar">
       <div class="profile-content">
@@ -137,8 +141,5 @@
         <p class="email">Email: johndoe@example.com</p>
       </div>
     </div>
-
-
-</body>
 
 </html>

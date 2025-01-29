@@ -96,7 +96,7 @@ let favorites = [];
                 button.classList.remove('favorited');
 
                 // Remove from favorites list
-                const favoriteItem = favoritesContent.querySelector(`[data-name="${bookName}"]`);
+                const favoriteItem = favoritesContent.querySelector([data-name="${bookName}"]);
                 if (favoriteItem) favoritesContent.removeChild(favoriteItem);
             } else {
                 // Add to favorites (prevent duplicates)
@@ -145,24 +145,22 @@ let favorites = [];
         }
 
         document.addEventListener("DOMContentLoaded", () => {
-            const profileIcon = document.getElementById("profileIcon"); // The profile icon
-            const profileSidebar = document.getElementById("profileSidebar"); // The sidebar
-            const container = document.getElementById("container"); // The main interface
-          
-            let isSidebarOpen = false; // Track sidebar state
-          
-            profileIcon.addEventListener("click", () => {
-              if (isSidebarOpen) {
-                // Close the sidebar
-                profileSidebar.style.transform = "translateX(100%)";
-                container.classList.remove("shifted");
-              } else {
-                // Open the sidebar
-                profileSidebar.style.transform = "translateX(0)";
-                container.classList.add("shifted");
-              }
-              isSidebarOpen = !isSidebarOpen; // Toggle state
-            });
+          const profileIcon = document.getElementById("profileIcon"); // أيقونة المستخدم
+          const profileSidebar = document.getElementById("profileSidebar"); // القائمة الجانبية
+    
+          let isSidebarOpen = false; // تتبع حالة القائمة
+    
+          // عند الضغط على أيقونة المستخدم
+          profileIcon.addEventListener("click", () => {
+            if (isSidebarOpen) {
+              // إغلاق القائمة الجانبية
+              profileSidebar.classList.remove("open");
+            } else {
+              // فتح القائمة الجانبية
+              profileSidebar.classList.add("open");
+            }
+            isSidebarOpen = !isSidebarOpen; // قلب الحالة
+          });
           });  const cartItems = [];
           const cartSection = document.getElementById('cartSection');
       
@@ -208,5 +206,20 @@ let favorites = [];
       
             if (cartItems.length === 0) {
               cartItemsList.innerHTML = '<li>Your cart is empty.</li>';
+            }
+          }
+          
+          function openPDF(button) {
+            // Get the PDF file URL from the button's data-pdf attribute
+            const pdfUrl = button.getAttribute('data-pdf');
+      
+            // Check if the URL exists
+            if (pdfUrl) {
+              // Open the PDF in a new tab
+              window.open(pdfUrl, '_blank'); // Opens in a new tab
+              // OR use this for same-window navigation:
+              // window.location.href = pdfUrl;
+            } else {
+              console.error('No PDF URL specified for this book.');
             }
           }

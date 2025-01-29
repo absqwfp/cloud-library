@@ -272,7 +272,7 @@ body {
   }
   
   /* Sidebar styles */
-   .profile-sidebar {
+  .profile-sidebar {
     position: fixed;
     top: 0;
     right: 0;
@@ -411,4 +411,4 @@ body {
   .cart-icon img {
     width: 24px;
     height: 24px;
-  }  
+  }

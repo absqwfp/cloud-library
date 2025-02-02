@@ -1,24 +1,33 @@
 <?php
-require 'db.php';
-
 session_start();
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $email = $_POST['email'];
-    $password = $_POST['password'];
+    // تخزين بيانات المستخدم في الجلسة
+    $_SESSION['user_id'] = uniqid(); // معرف وهمي للمستخدم
+    $_SESSION['email'] = $_POST['email']; // تخزين البريد الإلكتروني
 
-    $stmt = $pdo->prepare("SELECT * FROM users WHERE email = ?");
-    $stmt->execute([$email]);
-    $user = $stmt->fetch(PDO::FETCH_ASSOC);
-
-    if ($user && password_verify($password, $user['password'])) {
-        $_SESSION['user_id'] = $user['id'];
-        echo "Login successful!";
-        // Redirect to a protected page
-        header("Location: interface.html");
-        exit();
-    } else {
-        echo "Invalid email or password.";
-    }
+    // التوجه إلى صفحة الدفع
+    header("Location: payment.html");
+    exit();
 }
 ?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="index-styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Login</h1>
+        <form action="" method="POST">
+            <input type="email" name="email" placeholder="Enter your email" required>
+            <input type="password" name="password" placeholder="Enter your password" required>
+            <button type="submit">Login</button>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment</title>
+    <link rel="stylesheet" href="index-styles.css">
+    <style>
+        .payment-container {
+            text-align: center;
+            padding: 30px;
+            background-color: #fff;
+            border-radius: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            max-width: 500px;
+            margin: auto;
+            margin-top: 100px;
+        }
+        .payment-container h1 {
+            font-size: 28px;
+            color: #512da8;
+            margin-bottom: 20px;
+        }
+        .payment-container input {
+            width: 100%;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 10px;
+            border: 1px solid #ddd;
+            font-size: 16px;
+        }
+        .payment-container button {
+            background-color: #512da8;
+            color: white;
+            padding: 15px 20px;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+        .payment-container button:hover {
+            background-color: #6a49d4;
+        }
+    </style>
+</head>
+<body>
+    <div class="payment-container">
+        <h1>Complete Your Payment</h1>
+        <form action="interface.html" method="POST">
+            <input type="text" name="card_number" placeholder="Card Number" required>
+            <input type="text" name="card_holder" placeholder="Card Holder Name" required>
+            <input type="text" name="expiry_date" placeholder="Expiry Date (MM/YY)" required>
+            <input type="text" name="cvv" placeholder="CVV" required>
+            <button type="submit">Pay Now</button>
+        </form>
+    </div>
+</body>
+</html>

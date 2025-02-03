@@ -246,7 +246,7 @@ body {
     color: red;
 }
 
-.book button.read-btn {
+.book button.read-btn.watch-btn {
     background-color:#512da8;
     color: white;
     border: none;

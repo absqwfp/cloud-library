@@ -96,7 +96,7 @@ let favorites = [];
                 button.classList.remove('favorited');
 
                 // Remove from favorites list
-                const favoriteItem = favoritesContent.querySelector([data-name="${bookName}"]);
+                const favoriteItem = favoritesContent.querySelector(`[data-name="${bookName}"]`);
                 if (favoriteItem) favoritesContent.removeChild(favoriteItem);
             } else {
                 // Add to favorites (prevent duplicates)

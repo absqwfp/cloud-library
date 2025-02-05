@@ -13,13 +13,11 @@ This project is a cloud library interface, with sign-in, sign-up, payment and br
     ```bash
     git clone https://github.com/absqwfp/cloud-library.git
     ```
-
 2. **Go to the project folder**
     ```bash
     cd ./cloud-library
     ```
-
-3. **Open with Your Browser**
-    ```bash
-    firefox ./index.html
-    ```
+3. **Setup database**
+Change the db.php to make it match your database configuration
+4. **Open with Your Browser**
+Once the database is setup and the server is working navigate to its url

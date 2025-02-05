@@ -1,12 +1,12 @@
 # Cloud Library Project
 
 ## Overview
-This project is a cloud library interface, with sign-in, sign-up, and browse books pages.
+This project is a cloud library interface, with sign-in, sign-up, payment and browse books pages.
 
 ## Features
 - **Search Functionality**: Users can search for books in the library using a search bar.
 - **Book Browsing**: Users can browse a selection of books, view book titles, authors, and categories, and click "Read Now" to access the book.
-- **Favorites**: Users can add books to a favorites list
+- **Book Viewing**: Users can view the different books available
 
 ## How to Run
 1. **Clone the Repo**

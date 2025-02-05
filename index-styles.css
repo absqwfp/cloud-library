@@ -237,4 +237,38 @@ body {
         .home-container a:hover {
             background-color: #6a49d4;
         }
+ /* تصميم الزر الدائري */
+         .icon-button {
+            width: 50px;
+            height: 50px;
+            background-color: #6c63ff; /* لون الزر */
+            color: white; /* لون النص */
+            font-size: 24px;
+            font-weight: bold;
+            border: none;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            bottom: 20px; /* تثبيت الزر في الأسفل */
+            left: 50%;
+            transform: translateX(-50%);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            text-decoration: none;
+            transition: transform 0.2s ease, background-color 0.2s ease;
+        }
+
+        /* التأثيرات عند التمرير */
+        .icon-button:hover {
+            background-color: #574b90; /* تغيير لون الزر عند التمرير */
+            transform: scale(1.1); /* تكبير الزر قليلاً */
+        }
+
+        /* التأثير عند الضغط */
+        .icon-button:active {
+            transform: scale(0.95); /* تصغير الزر عند الضغط */
+        }
+
 
